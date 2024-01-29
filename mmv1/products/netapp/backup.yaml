@@ -117,6 +117,7 @@ properties:
     description: |
       ID of volumes this backup belongs to. Format: `projects/{{projects_id}}/locations/{{location}}/volumes/{{name}}``
     immutable: true
+    diff_suppress_func: tpgresource.ProjectNumberDiffSuppress
   - !ruby/object:Api::Type::String
     name: 'createTime'
     description: |
@@ -140,3 +141,4 @@ properties:
       there will be a new snapshot taken to initiate the backup creation.
       Format: `projects/{{projectId}}/locations/{{location}}/volumes/{{volumename}}/snapshots/{{snapshotname}}``
     required: false
+    diff_suppress_func: tpgresource.ProjectNumberDiffSuppress
