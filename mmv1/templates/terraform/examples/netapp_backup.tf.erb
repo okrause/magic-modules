@@ -25,9 +25,9 @@ resource "google_netapp_backup_vault" "default" {
   location = google_netapp_volume.default.location
 }
 
-# resource "google_netapp_backup" "<%= ctx[:primary_resource_id] %>" {
-#   name = "<%= ctx[:vars]['backup_name'] %>"
-#   location = google_netapp_backup_vault.test-vault.location
-#   vault_name = google_netapp_backup_vault.test-vault.name
-#   source_volume = google_netapp_volume.default.id
-# }
+resource "google_netapp_backup" "<%= ctx[:primary_resource_id] %>" {
+  name = "<%= ctx[:vars]['backup_name'] %>"
+  location = google_netapp_backup_vault.test-vault.location
+  vault_name = google_netapp_backup_vault.test-vault.name
+  source_volume = google_netapp_volume.default.id
+}
